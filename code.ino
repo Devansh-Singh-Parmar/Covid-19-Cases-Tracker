@@ -34,7 +34,7 @@ void setup()
 
 void loop() 
 {
-  http.begin(host,httpPort,url); 
+  http.begin(WiFiClient, host, httpPort, url); 
   int httpCode = http.GET();
   String data = http.getString();
   Serial.println(httpCode);
