@@ -8,7 +8,7 @@ LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars
 
 const char* host = "api.thingspeak.com";
 const int httpPort = 80;  
-const char* url = "/apps/thinghttp/send_request?api_key=apikey"; 
+const char* url = "/apps/thinghttp/send_request?api_key=WZNQRF572MMARIGA"; 
 HTTPClient http; 
 
 String cases;
@@ -21,7 +21,7 @@ void setup()
   lcd.init();                      // initialize the lcd 
   lcd.backlight();
   Serial.begin(9600);
-  WiFi.begin("Devansh@123", "pass");
+  WiFi.begin("Devansh@123", "vidhi1380");
   while(WiFi.status() != WL_CONNECTED)
   {
     delay(200);
@@ -34,7 +34,7 @@ void setup()
 
 void loop() 
 {
-  http.begin(host,httpPort,url); 
+  http.begin(WiFiClient, host, httpPort, url); 
   int httpCode = http.GET();
   String data = http.getString();
   Serial.println(httpCode);
